@@ -1,0 +1,77 @@
+---
+title: "My Awesome Paper"
+author: "Gavin Simpson"
+date: "`r Sys.Date()`"
+output:
+  bookdown::html_document2: default
+  bookdown::pdf_document2:
+    latex_engine: xelatex
+    citation_package: natbib
+    keep_tex: yes
+    toc: false
+bibliography: "paper.bib"
+biblio-style: apalike
+link-citations: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# Abstract {-}
+
+Something, Something
+
+# Introduction {-}
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+# Methods {-}
+
+These are some totally awesome methods that I'll be discussing in my paper. As mentioned in Introduction, this paper discusses a range of method including method 1 [@wood-2017] and method 2 that was first introduced by @pedersen-2019.
+
+# Results {-}
+
+You can also embed plots, for example:
+
+```{r pressure, include=FALSE, fig.cap="Look at this totally awesome result!", fig.pos='tbhf', fig.align='centre'}
+plot(pressure)
+```
+
+Note that the `include = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+As shown in Figure \@ref(fig:pressure), you will see my totally awesome result.
+
+Table \@ref(tab:results-table) also shows some frikkin awesome results in table form!
+
+```{r results-table, include = FALSE}
+knitr::kable(mtcars[1:10, 1:8], booktabs = TRUE, caption = "A table of totally awesome results!")
+```
+
+# Discussion {-}
+
+Blah, Blah, Blah
+
+# Conclusions {-}
+
+Give me the Nobel Prize
+
+# References {-}
+
+<div id="refs"></div>
+
+# Figures {-}
+
+```{r pressure, fig.pos='h', fig.align='centre', fig.cap = "Look at this totally awesome result!"}
+```
+
+# Tables {-}
+
+```{r results-table}
+```

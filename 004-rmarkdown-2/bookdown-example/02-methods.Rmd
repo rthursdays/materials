@@ -1,0 +1,3 @@
+# Methods
+
+These are some totally awesome methods that I'll be discussing in my book. As mentioned in Chapter \@ref(introduction) this book discussed a range of method including method 1 [@wood-2017] and method 2 that was first introduced by @pedersen-2019.
