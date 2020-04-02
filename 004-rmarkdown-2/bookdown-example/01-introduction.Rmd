@@ -2,11 +2,11 @@
 
 Here I introduce my totally awesome book.
 
-## Including Code
+## Including Code {#include-code}
 
 You can include R code in the document as follows:
 
-```{r cars}
+```{r cars, echo=TRUE}
 summary(cars)
 ```
 
@@ -14,10 +14,10 @@ summary(cars)
 
 You can also embed plots, for example:
 
-```{r pressure, echo=FALSE, fig.cap="A figure caption for this awesome figure"}
+```{r pressure, fig.cap="A figure caption for this awesome figure"}
 plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
-As shown in Figure \@ref(fig:pressure) 
+As shown in Figure \@ref(fig:pressure).

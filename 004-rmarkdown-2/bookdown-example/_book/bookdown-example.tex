@@ -124,15 +124,17 @@
 \chapter*{Preface}\label{preface}}
 \addcontentsline{toc}{chapter}{Preface}
 
-This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\).
+This is a \emph{sample} book written in \textbf{Markdown}. You can use anything that Pandoc's Markdown supports, e.g., a math equation \(a^2 + b^2 = c^2\). You can write inline code using 2020-04-02.
+
+\[a^2 + b^2 = c^2\]
 
 \hypertarget{introduction}{%
 \chapter{Introduction}\label{introduction}}
 
 Here I introduce my totally awesome book.
 
-\hypertarget{including-code}{%
-\section{Including Code}\label{including-code}}
+\hypertarget{include-code}{%
+\section{Including Code}\label{include-code}}
 
 You can include R code in the document as follows:
 
@@ -165,12 +167,14 @@ You can also embed plots, for example:
 
 Note that the \texttt{echo\ =\ FALSE} parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
-As shown in Figure \ref{fig:pressure}
+As shown in Figure \ref{fig:pressure}.
 
 \hypertarget{methods}{%
 \chapter{Methods}\label{methods}}
 
 These are some totally awesome methods that I'll be discussing in my book. As mentioned in Chapter \ref{introduction} this book discussed a range of method including method 1 \citep{wood-2017} and method 2 that was first introduced by \citet{pedersen-2019}.
+
+There was some code referenced in Section \ref{include-code}.
 
 \bibliography{book.bib}
 
