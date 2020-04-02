@@ -3,12 +3,13 @@ title: "My Awesome Paper"
 author: "Gavin Simpson"
 date: "4/2/2020"
 output:
-  bookdown::html_document2: default
   bookdown::pdf_document2:
     latex_engine: xelatex
     citation_package: natbib
     keep_tex: yes
     toc: false
+  bookdown::html_document2: default
+  bookdown::word_document2: default
 bibliography: "paper.bib"
 biblio-style: apalike
 link-citations: true

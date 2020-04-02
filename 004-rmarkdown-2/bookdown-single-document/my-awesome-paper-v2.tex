@@ -107,17 +107,24 @@
 \makeatother
 
 \usepackage[]{natbib}
-\bibliographystyle{apalike}
+\bibliographystyle{plainnat}
 
 \title{My Awesome Paper}
 \author{Gavin Simpson}
-\date{4/2/2020}
+\date{2020-04-02}
 
 \begin{document}
 \maketitle
 
+\hypertarget{abstract}{%
+\section*{Abstract}\label{abstract}}
+\addcontentsline{toc}{section}{Abstract}
+
+Something, Something
+
 \hypertarget{introduction}{%
-\section{Introduction}\label{introduction}}
+\section*{Introduction}\label{introduction}}
+\addcontentsline{toc}{section}{Introduction}
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see \url{http://rmarkdown.rstudio.com}.
 
@@ -140,26 +147,52 @@ When you click the \textbf{Knit} button a document will be generated that includ
 \end{verbatim}
 
 \hypertarget{methods}{%
-\section{Methods}\label{methods}}
+\section*{Methods}\label{methods}}
+\addcontentsline{toc}{section}{Methods}
 
-These are some totally awesome methods that I'll be discussing in my book. As mentioned in Chapter \ref{introduction} this book discussed a range of method including method 1 \citep{wood-2017} and method 2 that was first introduced by \citet{pedersen-2019}.
-
-There's some other papers on this topic that are complete rubbish \citep[see for example][]{simpson-2018}.
+These are some totally awesome methods that I'll be discussing in my paper. As mentioned in Introduction, this paper discusses a range of method including method 1 \citep{wood-2017} and method 2 that was first introduced by \citet{pedersen-2019}.
 
 \hypertarget{results}{%
-\section{Results}\label{results}}
+\section*{Results}\label{results}}
+\addcontentsline{toc}{section}{Results}
 
 You can also embed plots, for example:
 
-\begin{figure}[tbhf]
-\includegraphics{my-awesome-paper_files/figure-latex/pressure-1} \caption{Look at this totally awesome result!}\label{fig:pressure}
-\end{figure}
-
-Note that the \texttt{echo\ =\ FALSE} parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Note that the \texttt{include\ =\ FALSE} parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
 As shown in Figure \ref{fig:pressure}, you will see my totally awesome result.
 
 Table \ref{tab:results-table} also shows some frikkin awesome results in table form!
+
+\hypertarget{discussion}{%
+\section*{Discussion}\label{discussion}}
+\addcontentsline{toc}{section}{Discussion}
+
+Blah, Blah, Blah
+
+\hypertarget{conclusions}{%
+\section*{Conclusions}\label{conclusions}}
+\addcontentsline{toc}{section}{Conclusions}
+
+Give me the Nobel Prize
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+
+\hypertarget{figures}{%
+\section*{Figures}\label{figures}}
+\addcontentsline{toc}{section}{Figures}
+
+\begin{figure}[h]
+\includegraphics{my-awesome-paper-v2_files/figure-latex/pressure-1} \caption{Look at this totally awesome result!}\label{fig:pressure}
+\end{figure}
+
+\hypertarget{tables}{%
+\section*{Tables}\label{tables}}
+\addcontentsline{toc}{section}{Tables}
 
 \begin{table}
 
@@ -184,7 +217,6 @@ Merc 280 & 19.2 & 6 & 167.6 & 123 & 3.92 & 3.440 & 18.30 & 1\\
 \end{tabular}
 \end{table}
 
-\renewcommand\refname{References}
 \bibliography{paper.bib}
 
 \end{document}
