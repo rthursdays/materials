@@ -1,0 +1,308 @@
+---
+title: "Introduction to rmarkdown"
+author: "Gavin Simpson"
+date: "March 26th 2020"
+output:
+  xaringan::moon_reader:
+    css: ['default', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css', 'my.css']
+    lib_dir: libs
+    nature:
+      titleSlideClass: ['inverse','bottom','left',my-title-slide]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      beforeInit: "macros.js"
+      ratio: '16:9'
+      slideNumberFormat: |
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: calc(%current% / %total% * 100%);">
+          </div>
+        </div>
+---
+
+```{r setup, echo = FALSE, results = 'hide', message = FALSE}
+library('here')
+```
+
+# rmarkdown
+
+**rmarkdown** is a tool for mixing text written in *markdown* with code (typically R) and for including the outputs of that code in the document
+
+- *Literate Programming* &mdash; Donald Knuth in the 1980s
+- **Sweave** &mdash; an early R implementation of these ideas
+    - Sweave documents combined R code chunks embedded in a LateX document
+- **knitr** is a newer implementation that allows for greater flexibility than Sweave
+- **rmarkdown** builds upon **knitr** and **Pandoc** to provide a flexible document processing and literate programming tool for R (and other languages)
+
+**rmarkdown** itself has been extended in a number of ways
+
+- **blogdown**
+- **bookdown**
+- **xaringan**
+
+---
+
+# Markdown
+
+> **Markdown** is a lightweight markup language with plain-text formatting syntax.
+
+Aims to be *easy-to-read* **and** *easy-to-write*
+
+Developed by *John Gruber*
+
+Released 115 years ago (March 19th, 2004)
+
+Original version was a text &#8594; HTML conversion tool
+
+Now many flavours of Markdown
+
+- **Commonmark**
+- **GitHub** flavour Markdown
+- **Pandoc**
+
+These have their own conventions and extensions to the original syntax and allow conversion to other output formats (Pandoc)
+
+---
+
+# Markdown Syntax
+
+Inline formatting of text
+
+* emphasis/italics `*text*` or `_text_` &#8594; *text*
+* bold `**text**` &#8594; **text**
+* code <code>\`text\`</code> &#8594; `text`
+* subscript `CO~2~` &#8594; CO<sub>2</sub>
+* superscript `^15^N` &#8594; <sup>15</sup>N
+
+Links
+
+* `[link text](https://www.foo.org)` &#8594; [link text](https://www.foo.org)
+* bare links `<https://www.foo.org>` &#8594; https://www.foo.org
+
+
+---
+
+# Block level markup
+
+* headers
+* paragraphs
+* lists
+* code blocks
+* block quotes
+* horizontal rules
+* tables
+* math
+
+---
+
+# Headers
+
+Two ways to write headers
+
+.row[
+
+.col-6[
+
+<pre>
+<code>
+Heading
+=======
+
+Subheading
+----------
+</code>
+</pre>
+]
+
+.col-6[
+
+<pre>
+<code>
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+</code>
+</pre>
+]
+]
+
+---
+
+# Lists
+
+Bulleted lists
+
+.row[
+.col-6[
+
+<pre>
+<code>
+- item 1
+- item 2
+- item 3
+</code>
+</pre>
+]
+
+.col-6[
+
+* item 1
+* item 2
+* item 3
+
+]
+]
+
+Can use `*`, `-` or `.` as the bullet
+
+Ordered lists
+
+.row[
+.col-6[
+
+<pre>
+<code>
+1. item 1
+2. item 2
+3. item 3
+</code>
+</pre>
+]
+
+.col-6[
+
+1. item 1
+2. item 2
+3. item 3
+
+]
+]
+
+---
+
+# Code blocks
+
+You can insert code by either wrapping the text in backticks
+
+<pre>
+<code>
+```
+# this is some verbatim text
+
+foo <- bar()
+```
+</code>
+</pre>
+
+Or by indenting lines of code/verbatim text by **4** spaces
+
+<pre>
+<code>
+    # this is some verbatim text
+
+    foo <- bar()
+</code>
+</pre>    
+
+Note there are better ways to insert R code if you want higlighting
+
+---
+
+# Block quotes
+
+To insert a quotation we use a blockquote, indicated by the `> ` at the start of each line.
+
+
+<pre>
+<code>
+> "I thoroughly disapprove of duels. If a man should challenge me, I would
+  take him kindly and forgivingly by the hand and lead him to a quiet place
+  and kill him."
+>
+> &mdash; Mark Twain
+</code>
+</pre>
+
+> "I thoroughly disapprove of duels. If a man should challenge me, I would
+  take him kindly and forgivingly by the hand and lead him to a quiet place
+  and kill him."
+>
+> &mdash; Mark Twain
+
+---
+
+# Tables
+
+You can insert tabels using Markdown but they're a bit of a pain to typeset
+
+Better is to get the data for the table into a data frame in R and then use `knitr::kable()` to render the table to Markdown for you
+
+---
+
+# rmarkdown flavour markdown
+
+**rmarkdown** uses **Pandoc** to convert the input document to a rendered file
+
+* `my-file.md` &#8594; `my-file.pdf`
+* `my-file.md` &#8594; `my-file.html`
+* `my-file.md` &#8594; `my-file.doc`
+
+*Pandoc* is a document processing tool and has it's own flavour of Markdown with a number of extensions
+
+Consult the [*Pandoc* manual](https://pandoc.org/MANUAL.html#pandocs-markdown) for what you can do with it
+
+See also **bookdown** in next week's R Thursdays session
+
+---
+class: inverse center middle subsection
+
+# Your turn
+
+---
+
+# YAML &mdash; YAML Ain't Markup Language
+
+**YAML** is a human-readable data serialization language
+
+*Indentation* matters &mdash; use **spaces** and 2 or 4 of them
+
+```yaml
+---
+title: Hello R Markdown
+author: "Awesome Me"
+date: "2020-03-26"
+
+output:
+  html_document:
+    toc: true
+  pdf_document:
+    keep_tex: true
+---
+```
+
+---
+
+# rmarkdown
+
+An *rmarkdown* document has
+
+* a YAML header
+
+* narrative text
+
+* code chunks and inline code
+
+---
+
+# R code chunks
+
+<pre>
+<code>
+&#96;&#96;&#96;{r chunk-label, key = value, key = value}
+# code here
+foo <- bar()
+&#96;&#96;&#96;
+</code>
+</pre>
